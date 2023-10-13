@@ -1,11 +1,25 @@
-import './App.css'
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
 
-function App() {
+import Navigation from "./components/Navigation";
+import Home from "./views/Home";
+import CartDetails from "./views/CartDetails";
 
-  return (
-    <>
-    </>
-  )
-}
+const App = () => {
+    return (
+        <>
+            <div>
+                <Navigation />
 
-export default App
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    {/* <Route path ="/pizza/:id" element = {<PizzaDetails/>}/> */}
+                    <Route path="/cart" element={<CartDetails />} />
+                    {/* <Route path="/*" element={<NotFound />} /> */}
+                </Routes>
+            </div>
+        </>
+    );
+};
+
+export default App;
