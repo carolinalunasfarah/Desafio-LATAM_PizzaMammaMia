@@ -1,4 +1,15 @@
 #root {
-  margin: 0;
-  text-align: center;
+    margin: 0;
+    text-align: center;
+}
+
+header {
+    color: white;
+    background-image: url(./assets/img/header.jpg);
+    height: 15rem;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
