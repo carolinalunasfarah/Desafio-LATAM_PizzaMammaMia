@@ -1,9 +1,8 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 
 const Navigation = () => {
     const activeClass = ({ isActive }) => (isActive ? "active" : "inactive");
-    // const navigate = useNavigate ();
 
     return (
         <Navbar className="navigation">
