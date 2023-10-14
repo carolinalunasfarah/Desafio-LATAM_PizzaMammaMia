@@ -25,22 +25,23 @@ const PizzaCard = () => {
     }, []);
 
     return (
-        <section>
+        <section className="pizzaGallery">
             {pizzas.map((pizza, p) => (
                 <div key={p}>
                     <Card className="card">
                         <article>
                             <Card.Img src={pizza.img} alt={pizza.name} />
                         </article>
-                        <article>
+                        <section>
                             <Card.Body>
                                 <Card.Title className="text-capitalize">
                                     {pizza.name}
+                                    <hr />
                                 </Card.Title>
                                 <Card.Text>
                                     <strong>Ingredients</strong>
                                 </Card.Text>
-                                <Card.Text>
+                                <Card.Text className="cardIngredients">
                                     {pizza.ingredients.map(
                                         (ingredient, index) => (
                                             <li
@@ -50,11 +51,17 @@ const PizzaCard = () => {
                                             </li>
                                         )
                                     )}
+                                    
                                 </Card.Text>
+                                <hr />
                                 <Card.Text>
                                     <h2>$ {pizza.price}</h2>
                                 </Card.Text>
                             </Card.Body>
+                        </section>
+                        <article className="buttonsection">
+                            <button className="btn btn-secondary">Details</button>
+                            <button className="btn btn-warning">Add to cart</button>
                         </article>
                     </Card>
                 </div>

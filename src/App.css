@@ -13,3 +13,26 @@ header {
     flex-direction: column;
     justify-content: center;
 }
+
+.pizzaGallery {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: space-around;
+    gap: 2rem;
+    margin: 3rem;
+}
+
+.card {
+    width: 18rem;
+}
+
+.cardIngredients {
+    text-align: start;
+    padding: 0rem 3rem;
+}
+
+.buttonsection {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 1rem;
+}
