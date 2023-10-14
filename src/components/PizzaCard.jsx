@@ -3,8 +3,7 @@ import { PizzaContext } from "../context/PizzaContext";
 import Card from "react-bootstrap/Card";
 
 const PizzaCard = () => {
-    const [pizzas, setPizzas] =
-        useContext(PizzaContext);
+    const [pizzas, setPizzas] = useContext(PizzaContext);
     const urlData = "./src/pizzas.json";
 
     const getPizzas = async () => {
@@ -39,13 +38,21 @@ const PizzaCard = () => {
                                     {pizza.name}
                                 </Card.Title>
                                 <Card.Text>
-                                    <strong>{pizza.name}</strong>
+                                    <strong>Ingredients</strong>
                                 </Card.Text>
                                 <Card.Text>
-                                    <li>{pizza.ingredients}</li>
+                                    {pizza.ingredients.map(
+                                        (ingredient, index) => (
+                                            <li
+                                                key={index}
+                                                className="text-capitalize">
+                                                {ingredient}
+                                            </li>
+                                        )
+                                    )}
                                 </Card.Text>
                                 <Card.Text>
-                                    <h2>{pizza.price}</h2>
+                                    <h2>$ {pizza.price}</h2>
                                 </Card.Text>
                             </Card.Body>
                         </article>
