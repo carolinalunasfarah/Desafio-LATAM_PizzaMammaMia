@@ -3,6 +3,33 @@
     text-align: center;
 }
 
+/* Nav */
+.navigation {
+    height: 3rem;
+    background-color: rgb(122, 22, 22);
+}
+
+.navLinks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0rem 3rem;
+}
+
+.active,
+.inactive {
+    text-decoration: none;
+    font-size: 18px;
+    padding-right: 1rem;
+}
+.active {
+    color: rgb(245, 245, 75);
+}
+.inactive {
+    color: white;
+}
+
 /* Home */
 header {
     color: white;
