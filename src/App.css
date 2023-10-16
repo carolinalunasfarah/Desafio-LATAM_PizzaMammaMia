@@ -3,6 +3,7 @@
     text-align: center;
 }
 
+/* Home */
 header {
     color: white;
     background-image: url(./assets/img/header.jpg);
@@ -14,6 +15,7 @@ header {
     justify-content: center;
 }
 
+/* Pizza Gallery */
 .pizzaGallery {
     display: grid;
     grid-template-columns: repeat(3, auto);
@@ -22,16 +24,16 @@ header {
     margin: 3rem;
 }
 
-.card {
+.cardGallery {
     width: 18rem;
 }
 
-.cardIngredients {
+.cardGalleryIng {
     text-align: start;
     padding: 0rem 3rem;
 }
 
-.buttonsection {
+.cardButtons {
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 1rem;
