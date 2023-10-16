@@ -4,12 +4,8 @@ import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
 
 const PizzaCard = () => {
-    const [pizzas] = useContext(PizzaContext);
+    const { pizzas } = useContext(PizzaContext);
     const navigate = useNavigate();
-
-    const seeDetails = () => {
-        navigate(`/pizza/:id`);
-    };
 
     return (
         <section className="pizzaGallery">
@@ -21,12 +17,14 @@ const PizzaCard = () => {
                         </article>
                         <section>
                             <Card.Body>
-                                <Card.Title className="text-capitalize cardGalleryTitle">
+                                <Card.Text className="text-capitalize cardGalleryTitle">
                                     {pizza.name}
-                                </Card.Title>
+                                </Card.Text>
                                 <hr />
                                 <Card.Text>
-                                    <strong>Ingredients</strong>
+                                    <strong className="cardGalleryIngTitle">
+                                        Ingredients
+                                    </strong>
                                 </Card.Text>
                                 <Card.Text className="cardGalleryIng">
                                     {pizza.ingredients.map(
@@ -41,14 +39,17 @@ const PizzaCard = () => {
                                 </Card.Text>
                                 <hr />
                                 <Card.Text>
-                                    <h2>$ {pizza.price}</h2>
+                                    <span className="cardGalleryPrice">
+                                        $ {pizza.price}
+                                    </span>
                                 </Card.Text>
                             </Card.Body>
                         </section>
                         <article className="cardButtons">
                             <button
+                                to={`pizza/${pizza.id}`}
                                 className="btn btn-secondary"
-                                onClick={seeDetails}>
+                                onClick={() => navigate(`pizza/${pizza.id}`)}>
                                 Details
                             </button>
                             <button className="btn btn-warning">

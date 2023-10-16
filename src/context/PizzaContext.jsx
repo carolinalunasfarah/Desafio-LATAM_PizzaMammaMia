@@ -27,7 +27,7 @@ const PizzaProvider = ({ children }) => {
 
     return (
         <PizzaContext.Provider
-            value={[pizzas, setPizzas]}>
+            value={{pizzas, setPizzas}}>
             {children}
         </PizzaContext.Provider>
     );

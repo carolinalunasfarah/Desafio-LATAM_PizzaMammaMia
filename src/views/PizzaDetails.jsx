@@ -5,8 +5,8 @@ import Card from "react-bootstrap/Card";
 
 const PizzaDetails = () => {
     const { id } = useParams();
-    const [pizzas] = useContext(PizzaContext);
-    const [selectedPizza, setSelectedPizza] = useState({});
+    const { pizzas } = useContext(PizzaContext);
+    const [selectedPizza, setSelectedPizza] = useState([]);
 
     const getPizza = () => {
         const pizzaDetail = pizzas.find((pizza) => pizza.id === id);
@@ -38,7 +38,7 @@ const PizzaDetails = () => {
                             <strong>Ingredients</strong>
                         </Card.Text>
                         <Card.Text className="cardGalleryIng">
-                            {/* {selectedPizza.ingredients.map(
+                            {selectedPizza.ingredients.map(
                                     (ingredient, index) => (
                                         <li
                                             key={index}
@@ -46,11 +46,11 @@ const PizzaDetails = () => {
                                             {ingredient}
                                         </li>
                                     )
-                                )} */}
+                                )}
                         </Card.Text>
                         <hr />
                         <Card.Text>
-                            <h2>$ {selectedPizza.price}</h2>
+                            <span>$ {selectedPizza.price}</span>
                         </Card.Text>
                     </Card.Body>
                 </section>

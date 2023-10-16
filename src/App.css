@@ -61,11 +61,26 @@ header h1 {
 
 .cardGalleryTitle {
     font-family: "Pacifico", cursive;
+    font-size: 25px;
+    color: rgb(122, 22, 22);
+}
+
+.cardGalleryIngTitle {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(122, 22, 22);
 }
 
 .cardGalleryIng {
     text-align: start;
     padding: 0rem 3rem;
+    font-size: 18px;
+}
+
+.cardGalleryPrice {
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(122, 22, 22);
 }
 
 .cardButtons {
