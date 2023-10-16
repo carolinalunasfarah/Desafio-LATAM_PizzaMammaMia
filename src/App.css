@@ -32,7 +32,7 @@
 
 /* Home */
 header {
-    color: white;
+    color: rgb(122, 22, 22);
     background-image: url(./assets/img/header.jpg);
     height: 15rem;
     background-size: cover;
