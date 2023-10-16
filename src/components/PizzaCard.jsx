@@ -21,10 +21,10 @@ const PizzaCard = () => {
                         </article>
                         <section>
                             <Card.Body>
-                                <Card.Title className="text-capitalize">
+                                <Card.Title className="text-capitalize cardGalleryTitle">
                                     {pizza.name}
-                                    <hr />
                                 </Card.Title>
+                                <hr />
                                 <Card.Text>
                                     <strong>Ingredients</strong>
                                 </Card.Text>
