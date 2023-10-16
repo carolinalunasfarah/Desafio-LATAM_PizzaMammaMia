@@ -5,7 +5,7 @@ const Navigation = () => {
     const activeClass = ({ isActive }) => (isActive ? "active" : "inactive");
 
     return (
-        <Navbar className="navigation">
+        <Navbar className="navigation fixed-top">
             <section className="navLinks">
                 <NavLink className={activeClass} to="/"> 🍕 Mamma Mia Pizza House!
                 </NavLink>

@@ -40,6 +40,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-content: center;
 }
 
 header h1 {
@@ -56,7 +57,7 @@ header h1 {
 }
 
 .cardGallery {
-    width: 18rem;
+    width: 22rem;
 }
 
 .cardGalleryTitle {
@@ -73,8 +74,8 @@ header h1 {
 
 .cardGalleryIng {
     text-align: start;
-    padding: 0rem 3rem;
-    font-size: 18px;
+    padding: 0rem 5rem;
+    font-size: 16px;
 }
 
 .cardGalleryPrice {
@@ -87,4 +88,57 @@ header h1 {
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 1rem;
+}
+
+/* Pizza detail */
+.pizzaDetail {
+    margin: 2rem;
+    padding: 3rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.cardDetail {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.6rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.cardDetailImg {
+    border-radius: 0.6rem;
+    width: 28rem;
+    height: 28rem;
+    object-fit: cover;
+}
+
+.cardDetails {
+    width: 40rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    padding-left: 1rem;
+}
+
+.cardDetails p {
+    font-size: 16px;
+}
+
+.cardDetails h4 {
+    margin: 1rem 0rem;
+    color: rgb(122, 22, 22);
+}
+
+.cardDetails h2 {
+    font-family: "Pacifico", cursive;
+    color: rgb(122, 22, 22);
+}
+
+.cardDetailFooter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1rem;
 }

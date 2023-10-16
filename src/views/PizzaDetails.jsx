@@ -19,45 +19,43 @@ const PizzaDetails = () => {
     }, []);
 
     return (
-        <section className="pizzaGallery">
-            <Card className="cardGallery">
-                <article>
-                    <Card.Img
+        <section className="pizzaDetail text-start">
+            {selectedPizza && (
+                <div className="cardDetail">
+                    <img
+                        className="cardDetailImg"
                         src={selectedPizza.img}
                         alt={selectedPizza.name}
                     />
-                </article>
-                <section>
-                    <Card.Body>
-                        <Card.Title className="text-capitalize">
+                    <section className="cardDetails">
+                        <h2 className="text-capitalize">
                             {selectedPizza.name}
                             <hr />
-                        </Card.Title>
-                        <Card.Text>{selectedPizza.desc}</Card.Text>
-                        <Card.Text>
-                            <strong>Ingredients</strong>
-                        </Card.Text>
-                        <Card.Text className="cardGalleryIng">
+                        </h2>
+                        <p>{selectedPizza.desc}</p>
+                        <h4>Ingredients</h4>
+                        <section className="cardDetailIng">
                             {selectedPizza.ingredients.map(
-                                    (ingredient, index) => (
-                                        <li
-                                            key={index}
-                                            className="text-capitalize">
-                                            {ingredient}
-                                        </li>
-                                    )
-                                )}
-                        </Card.Text>
-                        <hr />
-                        <Card.Text>
-                            <span>$ {selectedPizza.price}</span>
-                        </Card.Text>
-                    </Card.Body>
-                </section>
-                <article className="cardButtons">
-                    <button className="btn btn-warning">Add to cart</button>
-                </article>
-            </Card>
+                                (ingredient, index) => (
+                                    <li key={index} className="text-capitalize">
+                                        {ingredient}
+                                    </li>
+                                )
+                            )}
+                        </section>
+                        <article className="cardDetailFooter">
+                            <h4>
+                                <span>Price: $ {selectedPizza.price}</span>
+                            </h4>
+                            <article>
+                                <button className="btn btn-warning">
+                                    <strong>Add to cart</strong>
+                                </button>
+                            </article>
+                        </article>
+                    </section>
+                </div>
+            )}
         </section>
     );
 };
