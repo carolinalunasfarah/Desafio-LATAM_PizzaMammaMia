@@ -1,11 +1,21 @@
 import { useContext } from "react";
 import { PizzaContext } from "../context/PizzaContext";
-import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
+import Card from "react-bootstrap/Card";
 
 const PizzaCard = () => {
-    const { pizzas } = useContext(PizzaContext);
+    const { pizzas, cart, setCart } = useContext(PizzaContext);
     const navigate = useNavigate();
+
+    const addToCart = (pizza) => {
+        const pizzaInCart = cart.find((item) => item.id === pizza.id)
+        if (pizzaInCart) {
+            pizzaInCart.quantity = (pizzaInCart.quantity || 1) + 1
+            setCart ([...cart])
+        } else {
+            setCart ([...cart, {...pizza, quantity: 1}])
+        }
+    }
 
     return (
         <section className="pizzaGallery">
@@ -52,7 +62,10 @@ const PizzaCard = () => {
                                 onClick={() => navigate(`pizza/${pizza.id}`)}>
                                 Details
                             </button>
-                            <button className="btn btn-warning">
+                            <button
+                                to={`/cart`}
+                                className="btn btn-warning"
+                                onClick={() => addToCart(pizza)}>
                                 Add to cart
                             </button>
                         </article>

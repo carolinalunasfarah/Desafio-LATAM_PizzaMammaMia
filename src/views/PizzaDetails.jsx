@@ -1,11 +1,10 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { PizzaContext } from "../context/PizzaContext";
-import Card from "react-bootstrap/Card";
 
 const PizzaDetails = () => {
     const { id } = useParams();
-    const { pizzas } = useContext(PizzaContext);
+    const { pizzas, cart, setCart } = useContext(PizzaContext);
     const [selectedPizza, setSelectedPizza] = useState([]);
 
     const getPizza = () => {
@@ -13,6 +12,16 @@ const PizzaDetails = () => {
         setSelectedPizza(pizzaDetail);
         // console.log(selectedPizza);
     };
+
+    // const addToCart = (pizza) => {
+    //     const pizzaInCart = cart.find((item) => item.id === pizza.id)
+    //     if (pizzaInCart) {
+    //         pizzaInCart.quantity = (pizzaInCart.quantity || 1) + 1
+    //         setCart ([...cart])
+    //     } else {
+    //         setCart ([...cart, {...pizza, quantity: 1}])
+    //     }
+    // }
 
     useEffect(() => {
         getPizza();
@@ -48,9 +57,12 @@ const PizzaDetails = () => {
                                 <span>Price: $ {selectedPizza.price}</span>
                             </h4>
                             <article>
-                                <button className="btn btn-warning">
-                                    <strong>Add to cart</strong>
-                                </button>
+                                {/* <button
+                                    to={`/cart`}
+                                    className="btn btn-warning"
+                                    onClick={() => addToCart(selectedPizza)}>
+                                    Add to cart
+                                </button> */}
                             </article>
                         </article>
                     </section>

@@ -4,6 +4,7 @@ export const PizzaContext = createContext();
 
 const PizzaProvider = ({ children }) => {
     const [pizzas, setPizzas] = useState([]);
+    const [cart, setCart] = useState([]);
 
     const urlData = "./src/pizzas.json";
 
@@ -17,7 +18,7 @@ const PizzaProvider = ({ children }) => {
             setPizzas(data);
             // console.log(data);
         } catch (error) {
-            console.error(error.message);
+            console.log(error.message);
         }
     };
 
@@ -27,7 +28,7 @@ const PizzaProvider = ({ children }) => {
 
     return (
         <PizzaContext.Provider
-            value={{pizzas, setPizzas}}>
+            value={{pizzas, setPizzas, cart, setCart}}>
             {children}
         </PizzaContext.Provider>
     );
