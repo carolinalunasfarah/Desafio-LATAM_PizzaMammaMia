@@ -21,9 +21,19 @@ const CartDetails = () => {
             }
             return pizza;
         });
-        const filterCart = updateCart.filter(pizza => pizza.quantity > 0)
+        const filterCart = updateCart.filter((pizza) => pizza.quantity > 0);
         setCart(filterCart);
     };
+
+    const totalPrice = cart.reduce ((total, pizza) => total + pizza.quantity * pizza.price, 0);
+    const formatTotalPrice = totalPrice.toLocaleString("es-CL");
+
+    const formatPrice = (price) => {
+        return price.toLocaleString('es-CL', {
+          style: 'currency',
+          currency: 'CLP'
+        });
+      };
 
     useEffect(() => {}, [cart]);
 
@@ -32,9 +42,9 @@ const CartDetails = () => {
             <h3>Order Details</h3>
             {cart.map((pizza) => (
                 <div key={pizza} className="cartDetails">
-                    <article className="cartIN">
+                    <article className="cartImgName">
                         <img
-                            className="cartDetailImg"
+                            className="cartImg"
                             src={pizza.img}
                             alt={pizza.name}
                         />
@@ -44,24 +54,25 @@ const CartDetails = () => {
                             </strong>
                         </p>
                     </article>
-                    <article className="cartTQ">
-                        <h5>$ {pizza.price}</h5>
+                    <article className="cartPriceQuantity">
+                        <h5>{formatPrice (pizza.price * (pizza.quantity || 1))}</h5>
                         <button
-                            className="cartButton reduce"
+                            className="cartButton decrement"
                             onClick={() => decrement(pizza.id)}>
                             -
                         </button>
-                        <strong className="cartQ">{pizza.quantity || 1}</strong>
+                        <h5>{pizza.quantity || 1}</h5>
                         <button
-                            className="cartButton add"
+                            className="cartButton increment"
                             onClick={() => increment(pizza.id)}>
                             +
                         </button>
                     </article>
                 </div>
             ))}
-            <article>
-                <button className="mt-5">Go to pay</button>
+            <article className="cartTotalPrice">
+                <h4>Total: <span>${formatTotalPrice}</span></h4>
+                <button className="payButton">Go to pay</button>
             </article>
         </section>
     );

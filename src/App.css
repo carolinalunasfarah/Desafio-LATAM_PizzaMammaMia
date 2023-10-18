@@ -24,7 +24,7 @@
     padding-right: 1rem;
 }
 .active {
-    color: rgb(245, 245, 75);
+    color: rgb(255, 157, 29);
 }
 .inactive {
     color: white;
@@ -157,25 +157,25 @@ header h1 {
     width: 50rem;
 }
 
-.cartIN {
+.cartImgName {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-.cartDetailImg {
+.cartImg {
     height: 3rem;
     margin-right: 1rem;
 }
 
-.cartTQ {
+.cartPriceQuantity {
     display: flex;
     flex-direction: row;
 }
 
-.cartTQ h5, p {
+.cartPriceQuantity h5 {
     color: rgb(122, 22, 22);
-    margin-right: 1rem;
+    margin: 0rem 1rem;
 }
 
 .cartButton {
@@ -188,14 +188,33 @@ header h1 {
     border-radius: 25%;
 }
 
-.reduce {  
+.decrement {
     background-color: rgb(128, 3, 3);
     color: white;
 }
-.add {
+.increment {
     background-color: rgb(47, 160, 76);
 }
 
-.cartQ {
-    margin: 0 1rem;
+.cartTotalPrice {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.cartTotalPrice span {
+    color: rgb(122, 22, 22);
+}
+
+.payButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    height: 3rem;
+    width: 6rem;
+    border-radius: 0.5rem;
+    background-color: rgb(255, 157, 29);
+    font-weight: bold;
 }

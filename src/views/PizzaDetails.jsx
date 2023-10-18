@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { PizzaContext } from "../context/PizzaContext";
 import { toast } from "react-toastify";
 
@@ -65,7 +65,7 @@ const PizzaDetails = () => {
                         </section>
                         <article className="cardDetailFooter">
                             <h4>
-                                <span>Price: $ {selectedPizza.price}</span>
+                                <span>Price: ${selectedPizza.price.toLocaleString("es-CL")}</span>
                             </h4>
                             <article>
                                 <button

@@ -61,7 +61,7 @@ const PizzaCard = () => {
                                 <hr />
                                 <Card.Text>
                                     <span className="cardGalleryPrice">
-                                        $ {pizza.price}
+                                        ${pizza.price.toLocaleString("es-CL")}
                                     </span>
                                 </Card.Text>
                             </Card.Body>
