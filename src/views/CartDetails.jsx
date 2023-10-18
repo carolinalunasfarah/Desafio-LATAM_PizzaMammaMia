@@ -2,7 +2,28 @@ import { useContext, useEffect } from "react";
 import { PizzaContext } from "../context/PizzaContext";
 
 const CartDetails = () => {
-    const { cart } = useContext(PizzaContext);
+    const { cart, setCart } = useContext(PizzaContext);
+
+    const increment = (pizzaIndex) => {
+        const updateCart = cart.map((pizza) => {
+            if (pizza.id === pizzaIndex) {
+                return { ...pizza, quantity: (pizza.quantity || 1) + 1 };
+            }
+            return pizza;
+        });
+        setCart(updateCart);
+    };
+
+    const decrement = (pizzaIndex) => {
+        const updateCart = cart.map((pizza) => {
+            if (pizza.id === pizzaIndex && pizza.quantity > 0) {
+                return { ...pizza, quantity: pizza.quantity - 1 };
+            }
+            return pizza;
+        });
+        const filterCart = updateCart.filter(pizza => pizza.quantity > 0)
+        setCart(filterCart);
+    };
 
     useEffect(() => {}, [cart]);
 
@@ -25,9 +46,17 @@ const CartDetails = () => {
                     </article>
                     <article className="cartTQ">
                         <h5>$ {pizza.price}</h5>
-                        <button className="cartButton reduce">-</button>
-                        <strong className="cartQ">2</strong>
-                        <button className="cartButton add">+</button>
+                        <button
+                            className="cartButton reduce"
+                            onClick={() => decrement(pizza.id)}>
+                            -
+                        </button>
+                        <strong className="cartQ">{pizza.quantity || 1}</strong>
+                        <button
+                            className="cartButton add"
+                            onClick={() => increment(pizza.id)}>
+                            +
+                        </button>
                     </article>
                 </div>
             ))}
