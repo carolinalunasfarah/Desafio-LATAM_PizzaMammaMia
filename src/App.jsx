@@ -5,6 +5,7 @@ import Navigation from "./components/Navigation";
 import Home from "./views/Home";
 import CartDetails from "./views/CartDetails";
 import PizzaDetails from "./views/PizzaDetails";
+import { ToastContainer } from 'react-toastify';
 
 const App = () => {
     return (
@@ -18,6 +19,7 @@ const App = () => {
                     <Route path="/cart" element={<CartDetails />} />
                     {/* <Route path="/*" element={<NotFound />} /> */}
                 </Routes>
+                <ToastContainer/>
             </div>
         </>
     );

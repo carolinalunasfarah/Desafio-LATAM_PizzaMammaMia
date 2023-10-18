@@ -2,20 +2,31 @@ import { useContext } from "react";
 import { PizzaContext } from "../context/PizzaContext";
 import { useNavigate } from "react-router-dom";
 import Card from "react-bootstrap/Card";
+import { toast } from "react-toastify";
 
 const PizzaCard = () => {
     const { pizzas, cart, setCart } = useContext(PizzaContext);
     const navigate = useNavigate();
 
     const addToCart = (pizza) => {
-        const pizzaInCart = cart.find((item) => item.id === pizza.id)
+        const pizzaInCart = cart.find((item) => item.id === pizza.id);
         if (pizzaInCart) {
-            pizzaInCart.quantity = (pizzaInCart.quantity || 1) + 1
-            setCart ([...cart])
+            pizzaInCart.quantity = (pizzaInCart.quantity || 1) + 1;
+            setCart([...cart]);
         } else {
-            setCart ([...cart, {...pizza, quantity: 1}])
+            setCart([...cart, { ...pizza, quantity: 1 }]);
         }
-    }
+        toast.success("🍕 Pizza added to cart", {
+            position: "bottom-right",
+            autoClose: 3000,
+            hideProgressBar: true,
+            closeOnClick: false,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: "dark",
+        });
+    };
 
     return (
         <section className="pizzaGallery">
