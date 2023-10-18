@@ -40,8 +40,8 @@ const CartDetails = () => {
     return (
         <section className="cart">
             <h3>Order Details</h3>
-            {cart.map((pizza) => (
-                <div key={pizza} className="cartDetails">
+            {cart.map((pizza, p) => (
+                <div key={p} className="cartDetails">
                     <article className="cartImgName">
                         <img
                             className="cartImg"
