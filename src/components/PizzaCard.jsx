@@ -63,7 +63,6 @@ const PizzaCard = () => {
                                 Details
                             </button>
                             <button
-                                to={`/cart`}
                                 className="btn btn-warning"
                                 onClick={() => addToCart(pizza)}>
                                 Add to cart

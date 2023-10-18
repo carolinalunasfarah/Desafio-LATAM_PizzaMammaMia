@@ -1,26 +1,38 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { PizzaContext } from "../context/PizzaContext";
 
 const CartDetails = () => {
-    // const [cart, setCart] = useContext(PizzaContext);
+    const { cart } = useContext(PizzaContext);
+
+    useEffect(() => {}, [cart]);
 
     return (
-        <section className="cartDetails">
+        <section className="cart">
             <h3>Order Details</h3>
+            {cart.map((pizza) => (
+                <div key={pizza} className="cartDetails">
+                    <article className="cartIN">
+                        <img
+                            className="cartDetailImg"
+                            src={pizza.img}
+                            alt={pizza.name}
+                        />
+                        <p>
+                            <strong className="text-capitalize">
+                                {pizza.name}
+                            </strong>
+                        </p>
+                    </article>
+                    <article className="cartTQ">
+                        <h5>$ {pizza.price}</h5>
+                        <button className="cartButton reduce">-</button>
+                        <strong className="cartQ">2</strong>
+                        <button className="cartButton add">+</button>
+                    </article>
+                </div>
+            ))}
             <article>
-                <img src="" alt="" />
-                <p>
-                    <strong>Pizza name</strong>
-                </p>
-                <span>Price</span>
-                <button>-</button>
-                <button>+</button>
-            </article>
-            <article>
-                <h3>Total $</h3>
-            </article>
-            <article>
-                <button>Go to pay</button>
+                <button className="mt-5">Go to pay</button>
             </article>
         </section>
     );
