@@ -1,22 +1,27 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { PizzaContext } from "../context/PizzaContext";
 
 const PizzaDetails = () => {
     const { id } = useParams();
     const { pizzas, addToCart, formatPrice } = useContext(PizzaContext);
     const [selectedPizza, setSelectedPizza] = useState([]);
+    const navigate = useNavigate();
 
     const getPizza = () => {
         const pizzaDetail = pizzas.find((pizza) => pizza.id === id);
-        setSelectedPizza(pizzaDetail);
+        if (pizzaDetail) {
+            setSelectedPizza(pizzaDetail);
+        } else {
+            setSelectedPizza(null);
+            navigate(`/*`);
+        }
         // console.log(selectedPizza);
     };
 
     useEffect(() => {
         getPizza();
     }, []);
-
 
     return (
         <section className="pizzaDetail text-start">
@@ -35,21 +40,22 @@ const PizzaDetails = () => {
                         <p>{selectedPizza.desc}</p>
                         <h4>Ingredients</h4>
                         <section className="cardDetailIng">
-                            {selectedPizza.ingredients && selectedPizza.ingredients.map(
-                                (ingredient, index) => (
-                                    <li key={index} className="text-capitalize">
-                                        {ingredient}
-                                    </li>
-                                )
-                            )}
+                            {selectedPizza.ingredients &&
+                                selectedPizza.ingredients.map(
+                                    (ingredient, index) => (
+                                        <li
+                                            key={index}
+                                            className="text-capitalize">
+                                            {ingredient}
+                                        </li>
+                                    )
+                                )}
                         </section>
                         <article className="cardDetailFooter">
-                            <h4>
-                                <span>Price: ${formatPrice(selectedPizza.price)}</span>
-                            </h4>
+                            <h4>Price: {formatPrice(selectedPizza.price)}</h4>
                             <article>
                                 <button
-                                    className="btn btn-warning"
+                                    className="cardButton add"
                                     onClick={() => addToCart(selectedPizza)}>
                                     Add to cart
                                 </button>

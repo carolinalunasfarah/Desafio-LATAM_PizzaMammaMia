@@ -17,7 +17,7 @@ const PizzaProvider = ({ children }) => {
             }
             const data = await response.json();
             setPizzas(data);
-            // console.log(data);
+            console.log(data);
         } catch (error) {
             console.log(error.message);
         }
@@ -56,7 +56,7 @@ const PizzaProvider = ({ children }) => {
 
     return (
         <PizzaContext.Provider
-            value={{ pizzas, setPizzas, addToCart,formatPrice, cart, setCart }}>
+            value={{ pizzas, setPizzas, addToCart, formatPrice, cart, setCart }}>
             {children}
         </PizzaContext.Provider>
     );
