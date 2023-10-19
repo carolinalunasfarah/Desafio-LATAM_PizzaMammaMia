@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { PizzaContext } from "../context/PizzaContext";
-import formatPrice  from "../helpers";
+import formatPrice from '../helpers/formatPrice.js'
 
 const PizzaDetails = () => {
     const { id } = useParams();
