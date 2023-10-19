@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import { PizzaContext } from "../context/PizzaContext";
+import Swal from "sweetalert2";
 
 const CartDetails = () => {
     const { cart, setCart } = useContext(PizzaContext);
@@ -25,15 +26,41 @@ const CartDetails = () => {
         setCart(filterCart);
     };
 
-    const totalPrice = cart.reduce ((total, pizza) => total + pizza.quantity * pizza.price, 0);
+    const totalPrice = cart.reduce(
+        (total, pizza) => total + pizza.quantity * pizza.price,
+        0
+    );
     const formatTotalPrice = totalPrice.toLocaleString("es-CL");
 
     const formatPrice = (price) => {
-        return price.toLocaleString('es-CL', {
-          style: 'currency',
-          currency: 'CLP'
+        return price.toLocaleString("es-CL", {
+            style: "currency",
+            currency: "CLP",
         });
-      };
+    };
+
+    const goToPay = () => {
+        Swal.fire({
+            title: "Are you sure you want to pay?",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonColor: "#ff9d1d",
+            cancelButtonColor: "#7a1616",
+            confirmButtonText: "Yes!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const { value: email } = Swal.fire({
+                    title: "Type your mail to send the transfer information",
+                    inputLabel: "Your email address",
+                    inputPlaceholder: "Enter your email address",
+                });
+
+                if (email) {
+                    Swal.fire(`Entered email: ${email}`);
+                }
+            }
+        });
+    };
 
     useEffect(() => {}, [cart]);
 
@@ -55,7 +82,9 @@ const CartDetails = () => {
                         </p>
                     </article>
                     <article className="cartPriceQuantity">
-                        <h5>{formatPrice (pizza.price * (pizza.quantity || 1))}</h5>
+                        <h5>
+                            {formatPrice(pizza.price * (pizza.quantity || 1))}
+                        </h5>
                         <button
                             className="cartButton decrement"
                             onClick={() => decrement(pizza.id)}>
@@ -71,8 +100,12 @@ const CartDetails = () => {
                 </div>
             ))}
             <article className="cartTotalPrice">
-                <h4>Total: <span>${formatTotalPrice}</span></h4>
-                <button className="payButton">Go to pay</button>
+                <h4>
+                    Total: <span>${formatTotalPrice}</span>
+                </h4>
+                <button className="payButton" onClick={goToPay}>
+                    Go to pay
+                </button>
             </article>
         </section>
     );

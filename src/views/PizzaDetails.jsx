@@ -10,12 +10,13 @@ const PizzaDetails = () => {
     const getPizza = () => {
         const pizzaDetail = pizzas.find((pizza) => pizza.id === id);
         setSelectedPizza(pizzaDetail);
-        // console.log(selectedPizza);
+        console.log(selectedPizza);
     };
 
     useEffect(() => {
         getPizza();
     }, []);
+
 
     return (
         <section className="pizzaDetail text-start">
