@@ -164,11 +164,16 @@ header h1 {
 
 /* Cart */
 .cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     padding: 1rem 3rem;
 }
 
 .cart h3 {
     padding-bottom: 1rem;
+    color: rgb(122, 22, 22);
 }
 
 .cartDetails {
@@ -221,7 +226,7 @@ header h1 {
 
 .cartTotalPrice {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
     align-items: center;
     margin-top: 2rem;
 }
@@ -231,6 +236,7 @@ header h1 {
 }
 
 .payButton {
+    margin-top: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
