@@ -17,7 +17,7 @@ const PizzaProvider = ({ children }) => {
             }
             const data = await response.json();
             setPizzas(data);
-            console.log(data);
+            // console.log(data);
         } catch (error) {
             console.log(error.message);
         }

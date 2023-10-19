@@ -1,20 +1,19 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { PizzaContext } from "../context/PizzaContext";
+import formatPrice  from "../helpers";
 
 const PizzaDetails = () => {
     const { id } = useParams();
-    const { pizzas, addToCart, formatPrice } = useContext(PizzaContext);
+    const { pizzas, addToCart } = useContext(PizzaContext);
     const [selectedPizza, setSelectedPizza] = useState([]);
     const navigate = useNavigate();
 
     const getPizza = () => {
         const pizzaDetail = pizzas.find((pizza) => pizza.id === id);
-        if (pizzaDetail) {
-            setSelectedPizza(pizzaDetail);
-        } else {
-            setSelectedPizza(null);
-            navigate(`/*`);
+        setSelectedPizza(pizzaDetail);
+        if (!pizzaDetail) {
+            navigate("/*");
         }
         // console.log(selectedPizza);
     };
