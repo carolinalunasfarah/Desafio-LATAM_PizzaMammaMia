@@ -1,12 +1,14 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import 'react-tooltip/dist/react-tooltip.css'
 
 import Navigation from "./components/Navigation";
 import Home from "./views/Home";
 import CartDetails from "./views/CartDetails";
 import PizzaDetails from "./views/PizzaDetails";
-import { ToastContainer } from "react-toastify";
 import NotFound from "./views/NotFound";
+
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
     return (

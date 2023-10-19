@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { PizzaContext } from "../context/PizzaContext";
 import Swal from "sweetalert2";
+import { Tooltip } from "react-tooltip";
 
 const CartDetails = () => {
     const { cart, setCart } = useContext(PizzaContext);
@@ -87,15 +88,23 @@ const CartDetails = () => {
                         </h5>
                         <button
                             className="cartButton decrement"
-                            onClick={() => decrement(pizza.id)}>
+                            onClick={() => decrement(pizza.id)}
+                            data-tooltip-id="my-tooltip-2"
+                            data-tooltip-content="Remove a pizza"
+                            data-tooltip-place="top">
                             -
                         </button>
+                        <Tooltip id="my-tooltip-2" style={{ backgroundColor: "#800303" }}/>
                         <h5>{pizza.quantity || 1}</h5>
                         <button
                             className="cartButton increment"
-                            onClick={() => increment(pizza.id)}>
+                            onClick={() => increment(pizza.id)}
+                            data-tooltip-id="my-tooltip-1"
+                            data-tooltip-content="Add a pizza"
+                            data-tooltip-place="top">
                             +
                         </button>
+                        <Tooltip id="my-tooltip-1" style={{ backgroundColor: "#2fa04b" }}/>
                     </article>
                 </div>
             ))}
