@@ -49,12 +49,12 @@ const PizzaCard = () => {
                         <article className="cardButtons">
                             <button
                                 to={`pizza/${pizza.id}`}
-                                className="btn btn-secondary"
+                                className="cardButton details"
                                 onClick={() => navigate(`pizza/${pizza.id}`)}>
                                 Details
                             </button>
                             <button
-                                className="btn btn-warning"
+                                className="cardButton add"
                                 onClick={() => addToCart(pizza)}>
                                 Add to cart
                             </button>
