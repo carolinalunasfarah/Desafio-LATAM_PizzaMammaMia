@@ -2,9 +2,10 @@ import { useContext, useEffect } from "react";
 import { PizzaContext } from "../context/PizzaContext";
 import Swal from "sweetalert2";
 import { Tooltip } from "react-tooltip";
+import formatPrice from '../helpers/formatPrice.js';
 
 const CartDetails = () => {
-    const { cart, setCart, formatPrice } = useContext(PizzaContext);
+    const { cart, setCart } = useContext(PizzaContext);
 
     const increment = (pizzaIndex) => {
         const updateCart = cart.map((pizza) => {
