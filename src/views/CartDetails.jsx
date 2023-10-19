@@ -50,15 +50,11 @@ const CartDetails = () => {
             confirmButtonText: "Yes!",
         }).then((result) => {
             if (result.isConfirmed) {
-                const { value: email } = Swal.fire({
-                    title: "Type your mail to send the transfer information",
-                    inputLabel: "Your email address",
-                    inputPlaceholder: "Enter your email address",
+                Swal.fire({
+                    title: "Sweet!",
+                    text: "But this a test, come back in 2024 when we open!",
+                    confirmButtonColor: "#ff9d1d",
                 });
-
-                if (email) {
-                    Swal.fire(`Entered email: ${email}`);
-                }
             }
         });
     };
@@ -94,7 +90,10 @@ const CartDetails = () => {
                             data-tooltip-place="top">
                             -
                         </button>
-                        <Tooltip id="my-tooltip-2" style={{ backgroundColor: "#800303" }}/>
+                        <Tooltip
+                            id="my-tooltip-2"
+                            style={{ backgroundColor: "#800303" }}
+                        />
                         <h5>{pizza.quantity || 1}</h5>
                         <button
                             className="cartButton increment"
@@ -104,7 +103,10 @@ const CartDetails = () => {
                             data-tooltip-place="top">
                             +
                         </button>
-                        <Tooltip id="my-tooltip-1" style={{ backgroundColor: "#2fa04b" }}/>
+                        <Tooltip
+                            id="my-tooltip-1"
+                            style={{ backgroundColor: "#2fa04b" }}
+                        />
                     </article>
                 </div>
             ))}

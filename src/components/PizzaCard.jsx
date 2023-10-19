@@ -3,7 +3,6 @@ import { PizzaContext } from "../context/PizzaContext";
 import { useNavigate } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 
-
 const PizzaCard = () => {
     const { pizzas, addToCart } = useContext(PizzaContext);
     const navigate = useNavigate();
