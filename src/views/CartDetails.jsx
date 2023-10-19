@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import { Tooltip } from "react-tooltip";
 
 const CartDetails = () => {
-    const { cart, setCart } = useContext(PizzaContext);
+    const { cart, setCart, formatPrice } = useContext(PizzaContext);
 
     const increment = (pizzaIndex) => {
         const updateCart = cart.map((pizza) => {
@@ -31,14 +31,6 @@ const CartDetails = () => {
         (total, pizza) => total + pizza.quantity * pizza.price,
         0
     );
-    const formatTotalPrice = totalPrice.toLocaleString("es-CL");
-
-    const formatPrice = (price) => {
-        return price.toLocaleString("es-CL", {
-            style: "currency",
-            currency: "CLP",
-        });
-    };
 
     const goToPay = () => {
         Swal.fire({
@@ -112,7 +104,7 @@ const CartDetails = () => {
             ))}
             <article className="cartTotalPrice">
                 <h4>
-                    Total: <span>${formatTotalPrice}</span>
+                    Total: <span>{formatPrice(totalPrice)}</span>
                 </h4>
                 <button className="payButton" onClick={goToPay}>
                     Go to pay

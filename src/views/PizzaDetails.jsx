@@ -4,7 +4,7 @@ import { PizzaContext } from "../context/PizzaContext";
 
 const PizzaDetails = () => {
     const { id } = useParams();
-    const { pizzas, addToCart } = useContext(PizzaContext);
+    const { pizzas, addToCart, formatPrice } = useContext(PizzaContext);
     const [selectedPizza, setSelectedPizza] = useState([]);
 
     const getPizza = () => {
@@ -35,7 +35,7 @@ const PizzaDetails = () => {
                         <p>{selectedPizza.desc}</p>
                         <h4>Ingredients</h4>
                         <section className="cardDetailIng">
-                            {selectedPizza.ingredients.map(
+                            {selectedPizza.ingredients && selectedPizza.ingredients.map(
                                 (ingredient, index) => (
                                     <li key={index} className="text-capitalize">
                                         {ingredient}
@@ -45,7 +45,7 @@ const PizzaDetails = () => {
                         </section>
                         <article className="cardDetailFooter">
                             <h4>
-                                <span>Price: ${selectedPizza.price.toLocaleString("es-CL")}</span>
+                                <span>Price: ${formatPrice(selectedPizza.price)}</span>
                             </h4>
                             <article>
                                 <button

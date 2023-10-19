@@ -43,13 +43,20 @@ const PizzaProvider = ({ children }) => {
         });
     };
 
+    const formatPrice = (price) => {
+        return price.toLocaleString("es-CL", {
+            style: "currency",
+            currency: "CLP",
+        });
+    };
+
     useEffect(() => {
         getPizzas();
     }, []);
 
     return (
         <PizzaContext.Provider
-            value={{ pizzas, setPizzas, addToCart, cart, setCart }}>
+            value={{ pizzas, setPizzas, addToCart,formatPrice, cart, setCart }}>
             {children}
         </PizzaContext.Provider>
     );
