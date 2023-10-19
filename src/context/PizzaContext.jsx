@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react";
+import { toast } from "react-toastify";
 
 export const PizzaContext = createContext();
 
@@ -22,13 +23,33 @@ const PizzaProvider = ({ children }) => {
         }
     };
 
+    const addToCart = (pizza) => {
+        const pizzaInCart = cart.find((item) => item.id === pizza.id);
+        if (pizzaInCart) {
+            pizzaInCart.quantity = (pizzaInCart.quantity || 1) + 1;
+            setCart([...cart]);
+        } else {
+            setCart([...cart, { ...pizza, quantity: 1 }]);
+        }
+        toast.success("🍕 Pizza added to cart", {
+            position: "bottom-right",
+            autoClose: 3000,
+            hideProgressBar: true,
+            closeOnClick: false,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: "dark",
+        });
+    };
+
     useEffect(() => {
         getPizzas();
     }, []);
 
     return (
         <PizzaContext.Provider
-            value={{pizzas, setPizzas, cart, setCart}}>
+            value={{ pizzas, setPizzas, addToCart, cart, setCart }}>
             {children}
         </PizzaContext.Provider>
     );

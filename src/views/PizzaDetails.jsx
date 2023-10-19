@@ -1,37 +1,16 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { PizzaContext } from "../context/PizzaContext";
-import { toast } from "react-toastify";
 
 const PizzaDetails = () => {
     const { id } = useParams();
-    const { pizzas, cart, setCart } = useContext(PizzaContext);
+    const { pizzas, addToCart } = useContext(PizzaContext);
     const [selectedPizza, setSelectedPizza] = useState([]);
 
     const getPizza = () => {
         const pizzaDetail = pizzas.find((pizza) => pizza.id === id);
         setSelectedPizza(pizzaDetail);
         // console.log(selectedPizza);
-    };
-
-    const addToCart = (pizza) => {
-        const pizzaInCart = cart.find((item) => item.id === pizza.id);
-        if (pizzaInCart) {
-            pizzaInCart.quantity = (pizzaInCart.quantity || 1) + 1;
-            setCart([...cart]);
-        } else {
-            setCart([...cart, { ...pizza, quantity: 1 }]);
-        }
-        toast.success("🍕 Pizza added to cart", {
-            position: "bottom-right",
-            autoClose: 3000,
-            hideProgressBar: true,
-            closeOnClick: false,
-            pauseOnHover: false,
-            draggable: false,
-            progress: undefined,
-            theme: "dark",
-        });
     };
 
     useEffect(() => {
