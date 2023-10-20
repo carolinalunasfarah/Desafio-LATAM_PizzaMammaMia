@@ -45,7 +45,7 @@ const CartDetails = () => {
             if (result.isConfirmed) {
                 Swal.fire({
                     title: "Sweet!",
-                    text: "But this a test, come back in 2024 when we open!",
+                    text: "Thanks for your interest in our pizzeria, we invite you to come back when we open in 2045",
                     confirmButtonColor: "#ff9d1d",
                 });
             }

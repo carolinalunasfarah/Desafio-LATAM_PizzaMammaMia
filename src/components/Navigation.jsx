@@ -15,7 +15,7 @@ const Navigation = () => {
             <section className="navLinks">
                 <NavLink className={activeClass} to="/"> 🍕 Mamma Mia Pizza House!
                 </NavLink>
-                <NavLink className={activeClass} to="/cart">🛒 ${formatTotalPrice}
+                <NavLink className={activeClass} to="/cart">🛒 Cart: ${formatTotalPrice}
                 </NavLink>
             </section>
         </Navbar>

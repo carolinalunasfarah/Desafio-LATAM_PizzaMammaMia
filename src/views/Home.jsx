@@ -7,7 +7,12 @@ const Home = () => {
                 <h1>Mamma Mia Pizza House!</h1>
                 <h4>Best pizzas in town!</h4>
             </header>
-            <main><PizzaCard /></main>
+            <main>
+                <PizzaCard />
+            </main>
+            <footer>
+                <h6>Pizza Mamma Mia, all rights reserved © 2023</h6>
+            </footer>
         </>
     );
 };
