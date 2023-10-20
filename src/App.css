@@ -25,6 +25,7 @@
 }
 .active {
     color: rgb(255, 157, 29);
+    font-weight: 500;
 }
 .inactive {
     color: white;
@@ -50,6 +51,24 @@ header:hover {
     cursor: default;
 }
 
+/* Footer */
+footer {
+    height: 2.5rem;
+    background-color: rgb(255, 157, 29);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+footer h6 {
+    width: 100%;
+    margin: 0.5rem 0rem;
+    color: rgb(122, 22, 22);
+}
+
+footer:hover {
+    cursor: default;
+}
 
 /* Pizza Gallery */
 .pizzaGallery {
@@ -68,6 +87,12 @@ header:hover {
     width: 22rem;
 }
 
+.cardGallery:hover {
+    transform: scale(1.05);
+    transition: ease-in-out 1s;
+    box-shadow: 10px 10px 2px 0.5px rgba(255, 157, 29, 0.25);
+}
+
 .cardGalleryTitle {
     font-family: "Pacifico", cursive;
     font-size: 25px;
@@ -84,6 +109,7 @@ header:hover {
     text-align: start;
     padding: 0rem 5rem;
     font-size: 16px;
+    list-style-type: none;
 }
 
 .cardGalleryPrice {
@@ -109,11 +135,11 @@ header:hover {
     font-size: 17px;
 }
 
-.details{
+.details {
     background-color: rgb(47, 160, 76);
     width: 5rem;
 }
-.add{
+.add {
     background-color: rgb(255, 157, 29);
     width: 7rem;
 }
@@ -124,6 +150,9 @@ header:hover {
     display: flex;
     justify-content: space-around;
 }
+.pizzaDetail:hover {
+    cursor: default;
+}
 
 .cardDetail {
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -131,6 +160,7 @@ header:hover {
     display: flex;
     flex-direction: row;
     align-items: center;
+    box-shadow: 10px 10px 2px 0.5px rgba(122, 22, 22, 0.3);
 }
 
 .cardDetailImg {
@@ -141,7 +171,6 @@ header:hover {
 }
 
 .cardDetails {
-    width: 40rem;
     display: flex;
     flex-direction: column;
     margin-top: 1rem;
@@ -162,12 +191,34 @@ header:hover {
     color: rgb(122, 22, 22);
 }
 
+.cardDetailsIng {
+    list-style-type: none;
+}
+
 .cardDetailFooter {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     margin-top: 1rem;
+}
+
+.addDetail {
+    background-color: rgb(255, 157, 29);
+    width: 7rem;
+}
+.addDetail:hover{
+    transform: scale(1.25);
+    transition: ease 1s;
+}
+
+.backHome{
+    width: 8rem;
+    background-color: rgb(47, 160, 76);
+}
+.backHome:hover{
+    transform: scale(1.25);
+    transition: ease 1s;
 }
 
 /* Cart */
@@ -176,16 +227,19 @@ header:hover {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 1rem 3rem;
+}
+
+.cart:hover {
+    cursor: default;
 }
 
 .cart h3 {
-    padding-bottom: 1rem;
+    padding: 2rem 0rem 2rem 0rem;
     color: rgb(122, 22, 22);
+    font-family: "Pacifico", cursive;
 }
 
 .cartDetails {
-    margin-top: 2rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -199,14 +253,20 @@ header:hover {
     align-items: center;
 }
 
+.cartImgName p {
+    padding-top: 0.5rem;
+}
+
 .cartImg {
     height: 3rem;
+    border-radius: 5%;
     margin-right: 1rem;
 }
 
 .cartPriceQuantity {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .cartPriceQuantity h5 {
@@ -222,6 +282,16 @@ header:hover {
     width: 2rem;
     border: none;
     border-radius: 25%;
+    font-weight: bold;
+}
+
+#my-tooltip-1 {
+    background-color: rgb(128, 3, 3);
+    font-weight: 400;
+}
+#my-tooltip-2 {
+    background-color: rgb(47, 160, 76);
+    font-weight: 400;
 }
 
 .decrement {
@@ -236,14 +306,14 @@ header:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 2rem;
+    margin: 2rem;
 }
 
 .cartTotalPrice span {
     color: rgb(122, 22, 22);
 }
 
-.payButton {
+.cartPayButton {
     margin-top: 1rem;
     display: flex;
     justify-content: center;
@@ -267,23 +337,4 @@ header:hover {
 
 .notFoundImg {
     margin: 2rem;
-}
-
-/* Footer */
-footer {
-    height: 2.5rem;
-    background-color: rgb(255, 157, 29);
-    justify-content: center;
-    align-items: center;
-    display: flex;
-}
-
-footer h6 {
-    width: 100%;
-    margin: 0.5rem 0rem;
-    color: rgb(122, 22, 22);
-}
-
-footer:hover {
-    cursor: default;
 }

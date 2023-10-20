@@ -43,13 +43,18 @@ const PizzaProvider = ({ children }) => {
         });
     };
 
+    const totalPrice = cart.reduce(
+        (total, pizza) => total + pizza.quantity * pizza.price,
+        0
+    );
+
     useEffect(() => {
         getPizzas();
     }, []);
 
     return (
         <PizzaContext.Provider
-            value={{ pizzas, setPizzas, addToCart, cart, setCart }}>
+            value={{ pizzas, setPizzas, addToCart, cart, setCart, totalPrice }}>
             {children}
         </PizzaContext.Provider>
     );

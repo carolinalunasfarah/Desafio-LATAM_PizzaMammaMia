@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { PizzaContext } from "../context/PizzaContext";
 import { useNavigate } from "react-router-dom";
 import Card from "react-bootstrap/Card";
+import formatPrice from '../helpers/formatPrice.js';
 
 const PizzaCard = () => {
     const { pizzas, addToCart } = useContext(PizzaContext);
@@ -32,7 +33,7 @@ const PizzaCard = () => {
                                             <li
                                                 key={index}
                                                 className="text-capitalize">
-                                                {ingredient}
+                                                🍕 {ingredient}
                                             </li>
                                         )
                                     )}
@@ -40,7 +41,7 @@ const PizzaCard = () => {
                                 <hr />
                                 <Card.Text>
                                     <span className="cardGalleryPrice">
-                                        ${pizza.price.toLocaleString("es-CL")}
+                                        {formatPrice(pizza.price)}
                                     </span>
                                 </Card.Text>
                             </Card.Body>

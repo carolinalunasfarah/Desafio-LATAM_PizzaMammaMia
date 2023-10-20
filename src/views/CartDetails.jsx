@@ -5,7 +5,7 @@ import { Tooltip } from "react-tooltip";
 import formatPrice from '../helpers/formatPrice.js';
 
 const CartDetails = () => {
-    const { cart, setCart } = useContext(PizzaContext);
+    const { cart, setCart, totalPrice } = useContext(PizzaContext);
 
     const increment = (pizzaIndex) => {
         const updateCart = cart.map((pizza) => {
@@ -27,11 +27,6 @@ const CartDetails = () => {
         const filterCart = updateCart.filter((pizza) => pizza.quantity > 0);
         setCart(filterCart);
     };
-
-    const totalPrice = cart.reduce(
-        (total, pizza) => total + pizza.quantity * pizza.price,
-        0
-    );
 
     const goToPay = () => {
         Swal.fire({
@@ -78,27 +73,25 @@ const CartDetails = () => {
                         <button
                             className="cartButton decrement"
                             onClick={() => decrement(pizza.id)}
-                            data-tooltip-id="my-tooltip-2"
+                            data-tooltip-id="my-tooltip-1"
                             data-tooltip-content="Remove a pizza"
                             data-tooltip-place="top">
                             -
                         </button>
                         <Tooltip
-                            id="my-tooltip-2"
-                            style={{ backgroundColor: "#800303" }}
+                            id="my-tooltip-1"
                         />
                         <h5>{pizza.quantity || 1}</h5>
                         <button
                             className="cartButton increment"
                             onClick={() => increment(pizza.id)}
-                            data-tooltip-id="my-tooltip-1"
+                            data-tooltip-id="my-tooltip-2"
                             data-tooltip-content="Add a pizza"
                             data-tooltip-place="top">
                             +
                         </button>
                         <Tooltip
-                            id="my-tooltip-1"
-                            style={{ backgroundColor: "#2fa04b" }}
+                            id="my-tooltip-2"
                         />
                     </article>
                 </div>
@@ -107,7 +100,7 @@ const CartDetails = () => {
                 <h4>
                     Total: <span>{formatPrice(totalPrice)}</span>
                 </h4>
-                <button className="payButton" onClick={goToPay}>
+                <button className="cartPayButton" onClick={goToPay}>
                     Go to pay
                 </button>
             </article>

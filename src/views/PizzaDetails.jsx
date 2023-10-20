@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { PizzaContext } from "../context/PizzaContext";
-import formatPrice from '../helpers/formatPrice.js'
+import formatPrice from "../helpers/formatPrice.js";
 
 const PizzaDetails = () => {
     const { id } = useParams();
@@ -38,27 +38,30 @@ const PizzaDetails = () => {
                         </h2>
                         <p>{selectedPizza.desc}</p>
                         <h4>Ingredients</h4>
-                        <section className="cardDetailIng">
+                        <section className="cardDetailsIng">
                             {selectedPizza.ingredients &&
                                 selectedPizza.ingredients.map(
                                     (ingredient, index) => (
                                         <li
                                             key={index}
                                             className="text-capitalize">
-                                            {ingredient}
+                                            🍕 {ingredient}
                                         </li>
                                     )
                                 )}
                         </section>
                         <article className="cardDetailFooter">
                             <h4>Price: {formatPrice(selectedPizza.price)}</h4>
-                            <article>
-                                <button
-                                    className="cardButton add"
-                                    onClick={() => addToCart(selectedPizza)}>
-                                    Add to cart
-                                </button>
-                            </article>
+                            <button
+                                className="cardButton addDetail"
+                                onClick={() => addToCart(selectedPizza)}>
+                                Add to cart
+                            </button>
+                            <button
+                                className="cardButton backHome"
+                                onClick={() => navigate(`/`)}>
+                                Back Home
+                            </button>
                         </article>
                     </section>
                 </div>

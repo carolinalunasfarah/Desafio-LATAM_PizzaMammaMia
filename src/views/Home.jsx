@@ -5,7 +5,7 @@ const Home = () => {
         <>
             <header>
                 <h1>Mamma Mia Pizza House!</h1>
-                <h4>Best pizzas in town!</h4>
+                <h3>Best pizzas in town!</h3>
             </header>
             <main>
                 <PizzaCard />
