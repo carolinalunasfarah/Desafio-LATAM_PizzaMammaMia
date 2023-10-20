@@ -7,6 +7,7 @@ import Home from "./views/Home";
 import CartDetails from "./views/CartDetails";
 import PizzaDetails from "./views/PizzaDetails";
 import NotFound from "./views/NotFound";
+import Footer from "./components/Footer";
 
 import { ToastContainer } from "react-toastify";
 
@@ -15,13 +16,13 @@ const App = () => {
         <>
             <div>
                 <Navigation />
-
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/pizza/:id" element={<PizzaDetails />} />
                     <Route path="/cart" element={<CartDetails />} />
                     <Route path="/*" element={<NotFound />} />
                 </Routes>
+                <Footer />
                 <ToastContainer />
             </div>
         </>

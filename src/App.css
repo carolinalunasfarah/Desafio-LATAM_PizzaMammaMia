@@ -46,6 +46,10 @@ header {
 header h1 {
     font-family: "Pacifico", cursive;
 }
+header:hover {
+    cursor: default;
+}
+
 
 /* Pizza Gallery */
 .pizzaGallery {
@@ -53,7 +57,11 @@ header h1 {
     grid-template-columns: repeat(3, auto);
     justify-content: space-around;
     gap: 2rem;
-    margin: 3rem;
+    margin: 2rem;
+}
+
+.pizzaGallery:hover {
+    cursor: default;
 }
 
 .cardGallery {
@@ -259,4 +267,23 @@ header h1 {
 
 .notFoundImg {
     margin: 2rem;
+}
+
+/* Footer */
+footer {
+    height: 2.5rem;
+    background-color: rgb(255, 157, 29);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+footer h6 {
+    width: 100%;
+    margin: 0.5rem 0rem;
+    color: rgb(122, 22, 22);
+}
+
+footer:hover {
+    cursor: default;
 }
