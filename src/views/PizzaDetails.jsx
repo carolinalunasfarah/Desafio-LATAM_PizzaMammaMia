@@ -51,7 +51,11 @@ const PizzaDetails = () => {
                                 )}
                         </section>
                         <article className="cardDetailFooter">
-                            <h4>Price: {formatPrice(selectedPizza.price)}</h4>
+                            {selectedPizza.price && (
+                                <h4>
+                                    Price: {formatPrice(selectedPizza.price)}
+                                </h4>
+                            )}
                             <button
                                 className="cardButton addDetail"
                                 onClick={() => addToCart(selectedPizza)}>
