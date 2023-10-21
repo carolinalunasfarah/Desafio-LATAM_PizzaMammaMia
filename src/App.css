@@ -245,6 +245,7 @@ footer:hover {
     justify-content: space-between;
     align-items: center;
     width: 50rem;
+    margin-bottom: 1rem;
 }
 
 .cartImgName {
