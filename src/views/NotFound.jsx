@@ -13,7 +13,7 @@ export const NotFound = () => {
             <img
                 className="notFoundImg"
                 src={pizzaNotFound}
-                alt="Sad Pikachu gif"
+                alt="Chilling pizza character"
             />
             <button className="btn btn-warning" onClick={backHome}>
                 <strong>Let's take you back to home page</strong>
