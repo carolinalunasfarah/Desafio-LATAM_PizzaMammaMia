@@ -7,7 +7,7 @@ const PizzaProvider = ({ children }) => {
     const [pizzas, setPizzas] = useState([]);
     const [cart, setCart] = useState([]);
 
-    const urlData = "./src/pizzas.json";
+    const urlData = "/pizzas.json";
 
     const getPizzas = async () => {
         try {
