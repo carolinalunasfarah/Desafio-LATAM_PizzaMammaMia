@@ -11,7 +11,7 @@ const Navigation = () => {
     return (
         <Navbar className="navigation">
             <section className="navLinks">
-                <NavLink className={activeClass} to="/"> 🍕 Mamma Mia Pizza House!
+                <NavLink className={activeClass} to="/">🍕 Mamma Mia Pizza House!
                 </NavLink>
                 <NavLink className={activeClass} to="/cart">🛒 Cart: {formatPrice(totalPrice)}
                 </NavLink>
